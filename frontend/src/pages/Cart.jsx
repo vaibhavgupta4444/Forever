@@ -6,7 +6,7 @@ import CartTotal from '../components/CartTotal';
 
 const Cart = () => {
 
-  const {currency,products,cartItems,updateQuantity,navigate}=useContext(ShopContext);
+  const {currency,products,cartItems,updateQuantity,navigate,token}=useContext(ShopContext);
 
   const [cartData,setCardData]=useState([]);
 
@@ -61,7 +61,7 @@ const Cart = () => {
         <div className='w-full sm:w-[450px]'>
           <CartTotal/>
           <div className='w-full text-end'>
-            <button onClick={()=>navigate('/place-order')} className='bg-black text-white text-sm my-8 px-8 py-3'>PROCEED TO CHECKOUT</button>
+            <button onClick={()=>token?navigate('/place-order'):navigate('/login')} className='bg-black text-white text-sm my-8 px-8 py-3'>PROCEED TO CHECKOUT</button>
           </div>
         </div>
       </div>
